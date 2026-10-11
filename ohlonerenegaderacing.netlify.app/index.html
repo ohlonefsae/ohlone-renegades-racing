@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from https://ohlonerenegaderacing.netlify.app/ by HTTrack Website Copier/3.x [XR&CO], Sat, 10 Oct 2026 21:27:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=ca70edeb-c1ec-4547-a411-7d6fb1ea1357
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ohlone Renegades Racing — Formula SAE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:      #0A0F0E;
+    --carbon:     #111816;
+    --panel:      #182220;
+    --border:     #1F3330;
+    --border-mid: #2A4A46;
+    --teal:       #005B55;
+    --teal-light: #007A72;
+    --teal-dim:   #004540;
+    --gold:       #F5CD13;
+    --gold-dim:   #C9A900;
+    --gold-dark:  #8A7300;
+    --titanium:   #B8C4C3;
+    --muted:      #6A8280;
+    --cream:      #EFF5F4;
+    --white:      #FFFFFF;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 60px;
+    background: rgba(10,15,14,0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1.2rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo .accent { color: var(--gold); }
+  .nav-logo .sub { color: var(--teal-light); font-weight: 400; font-size: 0.85rem; letter-spacing: 0.05em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--titanium);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--black);
+    background: var(--gold); border: none;
+    padding: 0.55rem 1.2rem; cursor: pointer;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--gold-dim); color: var(--white); }
+
+  /* HERO */
+  .hero {
+    position: relative; min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 2.5rem 60px;
+    overflow: hidden;
+    background: var(--black);
+  }
+  /* teal field that anchors the right side */
+  .hero-teal-block {
+    position: absolute; top: 0; right: 0;
+    width: 42%; height: 100%;
+    background: var(--teal);
+    clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 0.13;
+    pointer-events: none;
+  }
+  /* gold speed stripe */
+  .hero-stripe {
+    position: absolute; top: -10%; right: 36%;
+    width: 4px; height: 130%;
+    background: var(--gold);
+    transform: skewX(-12deg);
+    opacity: 0.8;
+    pointer-events: none;
+  }
+  .hero-stripe-2 {
+    position: absolute; top: -10%; right: 38%;
+    width: 1.5px; height: 130%;
+    background: var(--gold);
+    transform: skewX(-12deg);
+    opacity: 0.35;
+    pointer-events: none;
+  }
+  .hero-stripe-teal {
+    position: absolute; top: -10%; right: 39.5%;
+    width: 1px; height: 130%;
+    background: var(--teal-light);
+    transform: skewX(-12deg);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .hero-grid-overlay {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.22;
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 780px; }
+  .hero-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--teal-light); margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block;
+    width: 32px; height: 2px; background: var(--gold);
+  }
+  h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(4rem, 10vw, 8.5rem);
+    font-weight: 900; line-height: 0.92;
+    letter-spacing: -0.01em; text-transform: uppercase;
+    color: var(--white); margin-bottom: 0.2em;
+  }
+  h1 .line-gold { color: var(--gold); }
+  h1 .line-teal { color: var(--teal-light); font-style: italic; }
+  .hero-sub {
+    font-size: 1.1rem; font-weight: 300; color: var(--titanium);
+    max-width: 500px; margin: 1.5rem 0 2.5rem; line-height: 1.7;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--black); background: var(--gold);
+    padding: 0.85rem 2rem; text-decoration: none;
+    transition: background 0.2s; display: inline-block; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold-dim); color: var(--white); }
+  .btn-ghost {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--titanium); border: 1px solid var(--border-mid);
+    padding: 0.85rem 2rem; text-decoration: none;
+    transition: border-color 0.2s, color 0.2s; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--teal-light); color: var(--white); }
+  .hero-stats {
+    position: absolute; bottom: 3rem; right: 2.5rem;
+    display: flex; gap: 2.5rem; z-index: 2;
+  }
+  .hero-stat { text-align: right; }
+  .hero-stat .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.2rem; font-weight: 800; line-height: 1; color: var(--white);
+  }
+  .hero-stat .num span { color: var(--gold); }
+  .hero-stat .lbl {
+    font-size: 0.65rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted); margin-top: 4px;
+  }
+
+  /* SHARED SECTION */
+  section { padding: 6rem 2.5rem; }
+  .section-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--teal-light); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block; width: 20px; height: 2px; background: var(--gold);
+  }
+  h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800; text-transform: uppercase;
+    line-height: 1; color: var(--white); margin-bottom: 1rem;
+  }
+  .section-lead {
+    font-size: 1rem; color: var(--titanium);
+    max-width: 560px; line-height: 1.75; margin-bottom: 3rem;
+  }
+  .divider { height: 1px; background: var(--border); margin: 0 2.5rem; }
+
+  /* ABOUT */
+  .about-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; align-items: start; max-width: 1200px;
+  }
+  .about-right p {
+    font-size: 0.95rem; color: var(--titanium);
+    line-height: 1.8; margin-bottom: 1.25rem;
+  }
+  .about-right p strong { color: var(--cream); font-weight: 500; }
+  .spec-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); margin-top: 2rem;
+  }
+  .spec-item { background: var(--carbon); padding: 1rem 1.25rem; }
+  .spec-item .spec-label {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 0.3rem;
+  }
+  .spec-item .spec-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--cream);
+  }
+  /* teal accent bar on spec items */
+  .spec-item:nth-child(odd) { border-left: 3px solid var(--teal); }
+  .spec-item:nth-child(even) { border-left: 3px solid var(--gold-dim); }
+
+  /* SYSTEMS */
+  .systems-bg { background: var(--carbon); }
+  .systems-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); max-width: 1200px;
+  }
+  .system-card {
+    background: var(--panel); padding: 2rem 1.75rem;
+    position: relative; overflow: hidden; transition: background 0.2s;
+  }
+  .system-card:hover { background: #1f2e2c; }
+  .system-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 0; background: var(--gold);
+    transition: height 0.3s ease;
+  }
+  .system-card:hover::before { height: 100%; }
+  .system-card::after {
+    content: ''; position: absolute; top: 0; right: 0;
+    width: 0; height: 3px; background: var(--teal-light);
+    transition: width 0.3s ease 0.05s;
+  }
+  .system-card:hover::after { width: 100%; }
+  .system-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .system-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem; font-weight: 700;
+    text-transform: uppercase; color: var(--white);
+    margin-bottom: 0.75rem; line-height: 1.1;
+  }
+  .system-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+  /* TIMELINE */
+  .timeline-wrap { max-width: 800px; }
+  .timeline-item {
+    display: grid; grid-template-columns: 120px 1fr;
+    gap: 2rem; padding: 2rem 0;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-phase {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--teal-light); padding-top: 0.2rem; line-height: 1.4;
+  }
+  .timeline-content h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    text-transform: uppercase; color: var(--white); margin-bottom: 0.4rem;
+  }
+  .timeline-content p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+  .timeline-dot {
+    position: absolute; left: 108px; top: 2.35rem;
+    width: 10px; height: 10px;
+    background: var(--gold); transform: rotate(45deg);
+  }
+
+  /* SPONSOR */
+  .sponsor-section { background: var(--carbon); }
+  .sponsor-tiers {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); max-width: 1100px; margin-bottom: 3rem;
+  }
+  .tier-card { background: var(--panel); padding: 2rem 1.75rem; }
+  .tier-card.featured { background: var(--teal); }
+  .tier-card.featured .tier-name { color: rgba(255,255,255,0.6); }
+  .tier-card.featured .tier-amount { color: var(--gold); }
+  .tier-card.featured .tier-benefits li { color: rgba(255,255,255,0.8); }
+  .tier-card.featured .tier-benefits li::before { background: var(--gold); }
+  .tier-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--teal-light); margin-bottom: 0.5rem;
+  }
+  .tier-amount {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.4rem; font-weight: 900; color: var(--white);
+    line-height: 1; margin-bottom: 1.25rem;
+  }
+  .tier-amount sub { font-size: 1rem; font-weight: 400; vertical-align: baseline; color: var(--muted); }
+  .tier-card.featured .tier-amount sub { color: rgba(255,255,255,0.5); }
+  .tier-benefits { list-style: none; }
+  .tier-benefits li {
+    font-size: 0.82rem; color: var(--titanium);
+    padding: 0.35rem 0; display: flex; gap: 10px;
+    align-items: flex-start; line-height: 1.4;
+  }
+  .tier-benefits li::before {
+    content: ''; display: block; min-width: 6px; height: 6px;
+    background: var(--gold-dim); margin-top: 0.35rem; transform: rotate(45deg);
+  }
+  .sponsor-cta-row { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+  .sponsor-cta-row p { font-size: 0.875rem; color: var(--muted); max-width: 380px; line-height: 1.7; }
+
+  /* TEAM */
+  .team-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); max-width: 1000px;
+  }
+  .team-card { background: var(--panel); padding: 1.75rem; }
+  .team-avatar {
+    width: 52px; height: 52px;
+    background: var(--teal-dim);
+    border: 1px solid var(--teal);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 800;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .team-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    text-transform: uppercase; color: var(--white); margin-bottom: 0.2rem;
+  }
+  .team-card .role {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--teal-light);
+  }
+  .team-card .major { font-size: 0.8rem; color: var(--muted); margin-top: 0.5rem; }
+
+  /* CONTACT */
+  .contact-inner {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5rem; max-width: 960px; align-items: start;
+  }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    background: var(--panel); border: 1px solid var(--border);
+    color: var(--cream); font-family: 'Inter', sans-serif;
+    font-size: 0.9rem; padding: 0.75rem 1rem;
+    outline: none; transition: border-color 0.2s;
+    width: 100%; resize: vertical;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--teal-light);
+  }
+  .form-group select option { background: var(--panel); }
+  .contact-info p { font-size: 0.95rem; color: var(--titanium); line-height: 1.8; margin-bottom: 2rem; }
+  .contact-detail { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 1.25rem; }
+  .contact-detail-icon {
+    width: 36px; height: 36px; min-width: 36px;
+    background: var(--panel); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .contact-detail-icon svg { width: 16px; height: 16px; stroke: var(--teal-light); fill: none; stroke-width: 1.5; }
+  .contact-detail-text .label {
+    font-size: 0.65rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 2px;
+  }
+  .contact-detail-text .val { font-size: 0.9rem; color: var(--cream); }
+
+  /* TEAL BAND — school pride strip */
+  .school-band {
+    background: var(--teal);
+    padding: 1.25rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .school-band-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--white);
+  }
+  .school-band-text span { color: var(--gold); }
+  .school-band-sub { font-size: 0.8rem; color: rgba(255,255,255,0.65); font-weight: 400; margin-top: 2px; }
+  .renegades-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--black);
+    background: var(--gold); padding: 0.4rem 1rem;
+  }
+
+  /* JOIN / ROLES */
+  .join-section { background: var(--black); }
+  .join-intro {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start; max-width: 1100px;
+    margin-bottom: 3.5rem;
+  }
+  .join-right p {
+    font-size: 0.95rem; color: var(--titanium);
+    line-height: 1.8; margin-bottom: 1rem;
+  }
+  .join-right p strong { color: var(--cream); font-weight: 500; }
+  .tier-tabs {
+    display: flex; gap: 1px; background: var(--border);
+    border: 1px solid var(--border); margin-bottom: 2rem;
+    max-width: 400px;
+  }
+  .tier-tab {
+    flex: 1; padding: .65rem 1rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    text-align: center; cursor: pointer;
+    background: var(--panel); color: var(--muted);
+    border: none; transition: background 0.2s, color 0.2s;
+  }
+  .tier-tab.active { background: var(--teal); color: var(--gold); }
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    max-width: 1200px; margin-bottom: 3rem;
+  }
+  .role-card {
+    background: var(--panel); padding: 1.75rem;
+    position: relative; overflow: hidden;
+    transition: background 0.2s;
+    display: none;
+  }
+  .role-card.visible { display: block; }
+  .role-card:hover { background: #1f2e2c; }
+  .role-card::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+  }
+  .role-card.core::before { background: var(--gold); }
+  .role-card.contrib::before { background: var(--teal-light); }
+  .role-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .role-title-block { flex: 1; }
+  .role-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.3rem; font-weight: 800;
+    text-transform: uppercase; color: var(--white);
+    line-height: 1; margin-bottom: 0.3rem;
+  }
+  .role-subtitle {
+    font-size: 0.75rem; color: var(--teal-light);
+    font-weight: 500; letter-spacing: 0.08em;
+  }
+  .role-badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 3px 8px; white-space: nowrap; flex-shrink: 0;
+  }
+  .badge-core { background: rgba(245,205,19,0.12); color: var(--gold); border: 0.5px solid var(--gold-dim); }
+  .badge-contrib { background: rgba(0,91,85,0.2); color: var(--teal-light); border: 0.5px solid var(--teal); }
+  .role-desc {
+    font-size: 0.875rem; color: var(--titanium);
+    line-height: 1.7; margin-bottom: 1.25rem;
+  }
+  .role-section-title {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.5rem;
+  }
+  .role-list {
+    list-style: none; margin-bottom: 1.25rem;
+  }
+  .role-list li {
+    font-size: 0.8rem; color: var(--titanium);
+    padding: 0.25rem 0; display: flex; gap: 8px;
+    align-items: flex-start; line-height: 1.5;
+  }
+  .role-list li::before {
+    content: ''; display: block;
+    min-width: 5px; height: 5px;
+    margin-top: 0.4rem; transform: rotate(45deg);
+    flex-shrink: 0;
+  }
+  .role-card.core .role-list li::before { background: var(--gold-dim); }
+  .role-card.contrib .role-list li::before { background: var(--teal-light); }
+  .role-meta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 0.5px solid var(--border);
+  }
+  .role-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .role-meta-item .meta-label {
+    font-size: 0.6rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .role-meta-item .meta-val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700; color: var(--cream);
+  }
+  .trial-block {
+    background: var(--carbon);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--teal);
+    padding: 1.5rem 1.75rem;
+    max-width: 800px; margin-bottom: 2rem;
+  }
+  .trial-block h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    text-transform: uppercase; color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+  .trial-steps {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    gap: 1rem; margin-top: 1rem;
+  }
+  .trial-step { }
+  .trial-step .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em;
+    color: var(--gold); margin-bottom: 0.35rem;
+  }
+  .trial-step .step-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem; font-weight: 700;
+    text-transform: uppercase; color: var(--white);
+    margin-bottom: 0.25rem;
+  }
+  .trial-step p {
+    font-size: 0.78rem; color: var(--muted); line-height: 1.6;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--carbon); border-top: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--white); text-decoration: none;
+  }
+  .footer-logo .gold { color: var(--gold); }
+  .footer-logo .teal { color: var(--teal-light); }
+  footer p { font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+  footer nav { display: flex; gap: 1.5rem; }
+  footer nav a {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  footer nav a:hover { color: var(--titanium); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.25rem; }
+    .divider { margin: 0 1.25rem; }
+    .about-inner, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    .hero { padding: 100px 1.25rem 4rem; }
+    .hero-stats { position: static; flex-direction: row; margin-top: 2.5rem; gap: 2rem; }
+    .hero-stat { text-align: left; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .school-band { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Ohlone <span class="accent">Racing</span> <span class="sub">/ Renegades FSAE</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#car">The car</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#join">Join</a></li>
+    <li><a href="#sponsor">Sponsor</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#sponsor" class="nav-cta">Become a sponsor</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-teal-block"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-stripe-2"></div>
+  <div class="hero-stripe-teal"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Formula SAE — Ohlone College — Fremont, CA</div>
+    <h1><span class="line-gold">Renegade</span><br>built.<br><span class="line-teal">Race</span> ready.</h1>
+    <p class="hero-sub">Ohlone College's first-ever Formula SAE team. Renegades designing, fabricating, and racing a full open-wheel prototype car from scratch.</p>
+    <div class="hero-actions">
+      <a href="#sponsor" class="btn-primary">Sponsor the build</a>
+      <a href="#join" class="btn-ghost">Join the team</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="num">420<span>+</span></div>
+      <div class="lbl">Teams worldwide</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">1<span>st</span></div>
+      <div class="lbl">Year for Ohlone</div>
+    </div>
+    <div class="hero-stat">
+      <div class="num">14<span>mo</span></div>
+      <div class="lbl">Build timeline</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL BAND -->
+<div class="school-band">
+  <div>
+    <div class="school-band-text">Ohlone College — <span>Renegades</span></div>
+    <div class="school-band-sub">Fremont &amp; Newark, California · Connect • Engage • Succeed</div>
+  </div>
+  <div class="renegades-badge">Formula SAE — Year 1</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="section-eyebrow">Who we are</div>
+      <h2>Engineering<br>that moves</h2>
+      <p class="section-lead">We are Ohlone College's inaugural Formula SAE program — a team of Renegades building something most community colleges never attempt.</p>
+    </div>
+    <div class="about-right">
+      <p>Formula SAE is a global collegiate design competition organized by SAE International. Teams design, build, and race a small open-wheel race car from scratch, then present it to panels of professional engineers from automotive and aerospace firms including <strong>GM, Ford, Honda, and Lockheed Martin</strong>.</p>
+      <p>Being a community college team is not a disadvantage — it is our identity. Our students are working engineers in training, many the first in their families to pursue a technical degree. We bring focus, resourcefulness, and a chip on our shoulder.</p>
+      <p>We are competing in FSAE Michigan/Lincoln — the largest engineering design competition in the world — alongside 420+ teams from 52 countries. Ohlone Renegades belong on that grid.</p>
+      <div class="spec-grid">
+        <div class="spec-item">
+          <div class="spec-label">Engine</div>
+          <div class="spec-val">Honda CBR600F4i</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Drivetrain</div>
+          <div class="spec-val">Chain, rear-wheel drive</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Chassis</div>
+          <div class="spec-val">4130 chromoly space frame</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Target weight</div>
+          <div class="spec-val">&lt; 440 lb race trim</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Suspension</div>
+          <div class="spec-val">Unequal-length A-arms, 4 corners</div>
+        </div>
+        <div class="spec-item">
+          <div class="spec-label">Competition</div>
+          <div class="spec-val">FSAE Michigan / Lincoln</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SYSTEMS -->
+<section class="systems-bg" id="car">
+  <div class="section-eyebrow">The car</div>
+  <h2>Six systems.<br>One machine.</h2>
+  <p class="section-lead">Every subsystem is student-designed. There is no kit, no shortcut, and no precedent at this school. We are building the playbook as we go.</p>
+  <div class="systems-grid">
+    <div class="system-card">
+      <div class="system-num">SYS — 01</div>
+      <h3>Chassis & structure</h3>
+      <p>4130 chromoly steel space frame, TIG welded by students. Designed to FSAE roll-hoop and impact-attenuator rules. Every node calculated before it is cut.</p>
+    </div>
+    <div class="system-card">
+      <div class="system-num">SYS — 02</div>
+      <h3>Suspension</h3>
+      <p>Unequal-length double A-arms at all four corners. Custom machined uprights, Öhlins coilovers, and fully adjustable geometry for event-day tuning.</p>
+    </div>
+    <div class="system-card">
+      <div class="system-num">SYS — 03</div>
+      <h3>Powertrain</h3>
+      <p>Honda CBR600F4i engine through a 20mm SAE restrictor. Custom intake plenum, standalone ECU, and a stainless exhaust routed for maximum ground clearance.</p>
+    </div>
+    <div class="system-card">
+      <div class="system-num">SYS — 04</div>
+      <h3>Brakes</h3>
+      <p>Wilwood Dynalite four-piston calipers at all corners, dual-circuit pedal box with adjustable brake bias, and stainless-braided AN lines throughout.</p>
+    </div>
+    <div class="system-card">
+      <div class="system-num">SYS — 05</div>
+      <h3>Aerodynamics</h3>
+      <p>Single-element front and rear wings in fiberglass. Designed using CFD and tested against FSAE dimensional rules. Flat underbody floor for consistent ground effect.</p>
+    </div>
+    <div class="system-card">
+      <div class="system-num">SYS — 06</div>
+      <h3>Software & data</h3>
+      <p>AiM MXS dash with GPS lap timing and full sensor logging. Wheel speed at all four corners. Lap simulation in Python. ECU tuning via TunerStudio. Custom wiring harness built with Deutsch DT connectors. Every data-driven decision runs through this system.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="section-eyebrow">Build schedule</div>
+  <h2>The road<br>to competition</h2>
+  <div class="timeline-wrap">
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 1<br>Months 1–2</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Design & planning</h4>
+        <p>Rules study, suspension geometry simulation, chassis design, engine selection, and procurement of long-lead items. SAE registration and faculty advisor onboarding.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 2<br>Months 3–5</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Chassis fabrication</h4>
+        <p>Jig build, tube cutting, and TIG welding of the space frame. Simultaneous machining of suspension uprights, hubs, and pedal box fabrication.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 3<br>Months 5–8</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Assembly & integration</h4>
+        <p>Engine install, suspension assembly, brake system, wiring harness, fuel system, and first startup. All subsystems integrated and verified before rolling the car.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 4<br>Months 8–11</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Testing & development</h4>
+        <p>Shakedown, data-driven tuning, driver development, and reliability runs. Bodywork and aero fitted. Design report written. Competition tech checklist completed.</p>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-phase">Phase 5<br>Months 12–14</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <h4>Competition</h4>
+        <p>FSAE Michigan or Lincoln. Static events: design presentation, cost report, business plan. Dynamic events: skidpad, autocross, acceleration, and endurance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-eyebrow">The team</div>
+  <h2>The Renegades<br>building it</h2>
+  <p class="section-lead">Engineering, computer science, electrical, and business students from Ohlone College. Every person on this team builds, designs, and competes.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">TL</div>
+      <h4>Team Lead</h4>
+      <div class="role">Program director</div>
+      <div class="major">Mechanical Engineering</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">CL</div>
+      <h4>Chassis Lead</h4>
+      <div class="role">Frame & structure</div>
+      <div class="major">Mechanical Engineering</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">SL</div>
+      <h4>Suspension Lead</h4>
+      <div class="role">Geometry & dynamics</div>
+      <div class="major">Mechanical Engineering</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">PL</div>
+      <h4>Powertrain Lead</h4>
+      <div class="role">Engine & drivetrain</div>
+      <div class="major">Mechanical Engineering</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">EL</div>
+      <h4>Electronics Lead</h4>
+      <div class="role">Wiring & data systems</div>
+      <div class="major">Electrical Engineering</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">SW</div>
+      <h4>Software Lead</h4>
+      <div class="role">Data, simulation & tools</div>
+      <div class="major">Computer Science / Software Engineering</div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">BM</div>
+      <h4>Business Manager</h4>
+      <div class="role">Sponsorship & finance</div>
+      <div class="major">Business / Engineering</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPONSOR -->
+<section class="sponsor-section" id="sponsor">
+  <div class="section-eyebrow">Partner with us</div>
+  <h2>Put your brand<br>on the car.</h2>
+  <p class="section-lead">Your logo travels to FSAE competition, seen by recruiting managers from GM, Ford, Honda, Boeing, and over 100 engineering firms. Every dollar goes directly to the build.</p>
+  <div class="sponsor-tiers">
+    <div class="tier-card">
+      <div class="tier-name">Bronze</div>
+      <div class="tier-amount">$500<sub>+</sub></div>
+      <ul class="tier-benefits">
+        <li>Logo on team website</li>
+        <li>Social media recognition</li>
+        <li>Season update newsletter</li>
+      </ul>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">Silver</div>
+      <div class="tier-amount">$1,000<sub>+</sub></div>
+      <ul class="tier-benefits">
+        <li>Logo on car bodywork</li>
+        <li>Logo on team apparel</li>
+        <li>Website recognition</li>
+        <li>Social media features</li>
+      </ul>
+    </div>
+    <div class="tier-card featured">
+      <div class="tier-name">Gold — featured</div>
+      <div class="tier-amount">$2,500<sub>+</sub></div>
+      <ul class="tier-benefits">
+        <li>Large logo on car &amp; trailer</li>
+        <li>Recruiting access to team roster</li>
+        <li>Featured in all media</li>
+        <li>Car reveal event invitation</li>
+        <li>Dedicated sponsor post</li>
+      </ul>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">Platinum</div>
+      <div class="tier-amount">$5,000<sub>+</sub></div>
+      <ul class="tier-benefits">
+        <li>Title sponsor designation</li>
+        <li>Largest logo placement</li>
+        <li>Named recruiting event</li>
+        <li>All Gold benefits</li>
+        <li>Co-branded press releases</li>
+      </ul>
+    </div>
+    <div class="tier-card">
+      <div class="tier-name">In-kind</div>
+      <div class="tier-amount">Parts<sub>/ services</sub></div>
+      <ul class="tier-benefits">
+        <li>Machining, materials, software</li>
+        <li>Logo scaled to value</li>
+        <li>Tax-deductible donation</li>
+        <li>All equivalent tier benefits</li>
+      </ul>
+    </div>
+  </div>
+  <div class="sponsor-cta-row">
+    <a href="#contact" class="btn-primary">Get the sponsor packet</a>
+    <p>All monetary contributions are processed through Ohlone College Foundation (501(c)(3) nonprofit status). Donations may be fully tax-deductible.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-eyebrow">Get in touch</div>
+  <h2>Let's talk.</h2>
+  <div class="contact-inner">
+    <div>
+      <p class="section-lead" style="margin-bottom:2rem">Whether you want to sponsor the build, join the team, or just learn more — we want to hear from you.</p>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">Email</div>
+          <div class="val">ohlonerenegaderacing@yahoo.com</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">Location</div>
+          <div class="val">Ohlone College — 43600 Mission Blvd, Fremont, CA 94539</div>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.5 2 2 0 0 1 3.6 1.3h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 9A16 16 0 0 0 15 16.09l.96-.97a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div class="contact-detail-text">
+          <div class="label">Faculty advisor</div>
+          <div class="val">Engineering Department, Ohlone College</div>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First name</label>
+          <input type="text" id="fname" placeholder="Jane">
+        </div>
+        <div class="form-group">
+          <label for="lname">Last name</label>
+          <input type="text" id="lname" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" placeholder="jane@company.com">
+      </div>
+      <div class="form-group">
+        <label for="org">Company / organization</label>
+        <input type="text" id="org" placeholder="Acme Engineering Co.">
+      </div>
+      <div class="form-group">
+        <label for="interest">I'm interested in</label>
+        <select id="interest">
+          <option value="">Select one</option>
+          <option>Sponsoring the team</option>
+          <option>Applying for a core role</option>
+          <option>Joining as a contributor</option>
+          <option>In-kind parts or services</option>
+          <option>Media / press inquiry</option>
+          <option>General information</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" rows="4" placeholder="Tell us a bit about what you have in mind..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;text-align:center;font-size:0.9rem;">Send message</button>
+      <div id="form-confirm" style="display:none;font-size:0.85rem;color:var(--teal-light);padding:0.5rem 0">Message sent — we'll be in touch shortly.</div>
+    </form>
+  </div>
+</section>
+
+<!-- JOIN -->
+<div class="divider"></div>
+<section class="join-section" id="join">
+  <div class="join-intro">
+    <div>
+      <div class="section-eyebrow">Join the team</div>
+      <h2>Find your<br>role on the<br><span style="color:var(--gold)">Renegades.</span></h2>
+    </div>
+    <div class="join-right">
+      <p>We have roles for every background — engineers, fabricators, machinists, welders, electronics techs, business students, and creatives. <strong>No prior FSAE experience is required.</strong> What we need is genuine interest, honest availability, and the willingness to do real work.</p>
+      <p>Core technical roles involve direct work on the car's critical systems and require a brief calibration conversation with the system lead plus a four-week trial period. Contributor roles are open to any currently enrolled Ohlone student — you show up, you're on the team.</p>
+      <p>All team members must be currently enrolled at Ohlone College (minimum one unit). Anyone working in the shop must complete Ohlone's shop safety orientation. Drivers must hold a valid license and pass a team driver evaluation.</p>
+    </div>
+  </div>
+
+  <div class="tier-tabs">
+    <button class="tier-tab active" onclick="showTier('core',this)">Core roles</button>
+    <button class="tier-tab" onclick="showTier('contrib',this)">Contributor roles</button>
+    <button class="tier-tab" onclick="showTier('all',this)">All roles</button>
+  </div>
+
+  <div class="roles-grid" id="roles-grid">
+
+    <!-- CORE ROLES -->
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Team Lead</div>
+          <div class="role-subtitle">Program director &amp; point of contact</div>
+        </div>
+        <div class="role-badge badge-core">Core — leadership</div>
+      </div>
+      <p class="role-desc">Owns the overall program. Coordinates between all system leads, manages the master schedule, drives sponsor relationships, and makes final decisions when teams disagree. The team lead is the person who holds the whole picture at all times.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Run weekly lead meetings and monthly all-hands</li>
+        <li>Maintain master schedule and critical path</li>
+        <li>Own all external relationships — sponsors, SAE, faculty advisor</li>
+        <li>Represent the team at competition static events</li>
+        <li>Escalate and resolve cross-system conflicts</li>
+        <li>Write and present business plan at competition</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Prior leadership or project coordination experience</li>
+        <li>Strong written and verbal communication</li>
+        <li>Familiarity with engineering or motorsport is a plus but not required</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">8–12</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">6 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation + trial</div></div>
+      </div>
+    </div>
+
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Chassis Lead</div>
+          <div class="role-subtitle">Frame, structure &amp; safety systems</div>
+        </div>
+        <div class="role-badge badge-core">Core — fabrication</div>
+      </div>
+      <p class="role-desc">Designs and builds the backbone of the car. Owns the space frame from first sketch to final weld, including all structural analysis, fabrication drawings, and rules compliance for the primary structure. The most fabrication-intensive lead role on the team.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Design chassis in SolidWorks Weldments from driver ergonomics envelope</li>
+        <li>Run FEA on frame under torsional and bending loads</li>
+        <li>Build chassis jig and oversee all tube cutting and welding</li>
+        <li>Weld or directly supervise all structural welds</li>
+        <li>Ensure chassis meets every FSAE structural rule</li>
+        <li>Produce fabrication drawings for all chassis components</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>SolidWorks or equivalent CAD experience</li>
+        <li>TIG welding experience strongly preferred — willing to train the right person</li>
+        <li>Mechanical engineering coursework helpful</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">10–15</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">4 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation + weld test</div></div>
+      </div>
+    </div>
+
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Suspension Lead</div>
+          <div class="role-subtitle">Geometry, dynamics &amp; handling</div>
+        </div>
+        <div class="role-badge badge-core">Core — engineering</div>
+      </div>
+      <p class="role-desc">Defines how the car handles. Runs kinematic analysis in OptimumK, designs all four corners of the suspension in CAD, oversees machining of uprights and hubs, and sets up geometry at the track. Every handling characteristic of the car flows from this role.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Run suspension kinematics in OptimumK — camber gain, roll center, anti-dive</li>
+        <li>Design A-arms, uprights, stub axles, tie rods, and anti-roll bars in SolidWorks</li>
+        <li>Coordinate machining of uprights and hubs (CNC or manual mill)</li>
+        <li>Weld A-arm tubes and assemble rod ends</li>
+        <li>Set geometry at the car — camber, toe, ride height, corner weights</li>
+        <li>Tune suspension at testing and competition</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>SolidWorks experience required — will be doing substantial CAD work</li>
+        <li>Physics or dynamics coursework helpful</li>
+        <li>Machining experience (lathe, mill) a significant plus</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">10–14</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">4 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation + CAD review</div></div>
+      </div>
+    </div>
+
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Powertrain Lead</div>
+          <div class="role-subtitle">Engine, intake, exhaust &amp; drivetrain</div>
+        </div>
+        <div class="role-badge badge-core">Core — fabrication</div>
+      </div>
+      <p class="role-desc">Gets the car moving. Responsible for the Honda CBR engine rebuild, custom intake plenum design, exhaust fabrication, ECU configuration, fuel system, and the full drivetrain from engine sprocket to rear wheels. First start is this role's milestone.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Tear down, inspect, and rebuild the engine</li>
+        <li>Design and fabricate the 20mm restrictor and intake plenum</li>
+        <li>Fabricate exhaust system in 4130 or stainless steel</li>
+        <li>Plumb full fuel system — pump, regulator, injectors, lines</li>
+        <li>Install differential, halfshafts, and chain drive</li>
+        <li>Configure standalone ECU and tune base map for first start</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Motorcycle or automotive engine experience strongly preferred</li>
+        <li>Fabrication skills — welding, plumbing, AN fittings</li>
+        <li>Basic ECU tuning experience a major plus</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">10–15</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">4 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation + skills review</div></div>
+      </div>
+    </div>
+
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Electronics Lead</div>
+          <div class="role-subtitle">Wiring, data acquisition &amp; safety systems</div>
+        </div>
+        <div class="role-badge badge-core">Core — electrical</div>
+      </div>
+      <p class="role-desc">Makes the car smart and safe. Designs the full wiring harness from schematic, installs all sensors and safety systems, configures the AiM data logger, and owns all electrical troubleshooting. If something isn't starting or a sensor isn't reading, this is the person who finds out why.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Design complete wiring harness schematic — power, sensors, ECU, safety</li>
+        <li>Build harness using Deutsch DT connectors with full wire labeling</li>
+        <li>Install master switch, kill switch, fuse block, and all relays</li>
+        <li>Install and configure AiM MXS dash, GPS, and all sensors</li>
+        <li>Install and verify fire suppression system wiring</li>
+        <li>Own all electrical troubleshooting at testing and competition</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Electrical engineering or electronics coursework required</li>
+        <li>Experience reading and drawing wiring schematics</li>
+        <li>Hands-on wiring or automotive electrical experience a strong plus</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">8–12</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">4 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation + schematic review</div></div>
+      </div>
+    </div>
+
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Software Lead</div>
+          <div class="role-subtitle">Data analysis, simulation &amp; team tools</div>
+        </div>
+        <div class="role-badge badge-core">Core — software</div>
+      </div>
+      <p class="role-desc">Makes the team faster through code. Builds the lap simulation model that predicts competition performance, writes data analysis scripts that turn raw AiM logs into actionable tuning decisions, configures the ECU and data systems, and builds internal tools that keep the team organised and efficient. The only role you can contribute to entirely from a laptop.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Build and maintain lap simulation model in Python or MATLAB</li>
+        <li>Write data analysis scripts for AiM logged session data</li>
+        <li>Configure MegaSquirt ECU firmware, base map, and TunerStudio dashboard</li>
+        <li>Configure AiM Race Studio 3 — channels, warnings, and display pages</li>
+        <li>Build suspension geometry and vehicle dynamics calculation scripts</li>
+        <li>Maintain GitHub repo, Discord bot, and team automation tools</li>
+        <li>Build cost report and BOM automation scripts for the business team</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Python or MATLAB required — data analysis libraries (pandas, numpy, matplotlib) a strong plus</li>
+        <li>Computer science, software engineering, or data science coursework</li>
+        <li>Web development skills useful for team tooling (JavaScript, HTML)</li>
+        <li>No automotive experience required — curiosity about vehicle dynamics is enough</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">5–10</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">4 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1–2</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation + code sample</div></div>
+      </div>
+    </div>
+
+    <div class="role-card core visible" data-tier="core">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Business Manager</div>
+          <div class="role-subtitle">Sponsorship, finance &amp; competition documents</div>
+        </div>
+        <div class="role-badge badge-core">Core — operations</div>
+      </div>
+      <p class="role-desc">Funds the build and presents the business case at competition. Manages all sponsor relationships, tracks the budget, coordinates procurement, and prepares the cost report and business plan presentation — both scored events at FSAE. The team doesn't run without this role.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Execute sponsor outreach campaign — email, follow-up, and relationship management</li>
+        <li>Manage team budget and track all expenditures</li>
+        <li>Coordinate parts procurement and vendor relationships</li>
+        <li>Prepare FSAE cost report per official rules (scored event)</li>
+        <li>Write and present business plan at competition (scored event)</li>
+        <li>Manage team bank account through Ohlone Foundation</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Business, accounting, or marketing coursework preferred</li>
+        <li>Strong written communication and professional email etiquette</li>
+        <li>Spreadsheet proficiency (Excel or Google Sheets)</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">6–10</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">4 weeks</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Conversation only</div></div>
+      </div>
+    </div>
+
+    <!-- CONTRIBUTOR ROLES -->
+    <div class="role-card contrib" data-tier="contrib">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">CAD Designer</div>
+          <div class="role-subtitle">SolidWorks modeling &amp; drawings</div>
+        </div>
+        <div class="role-badge badge-contrib">Contributor — design</div>
+      </div>
+      <p class="role-desc">Supports system leads with CAD modeling, component downloads, assembly work, and fabrication drawings. Ideal for students who know SolidWorks and want to build real-world modeling experience on a complex multi-part assembly.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Model assigned components in SolidWorks under system lead guidance</li>
+        <li>Download and integrate purchased component models (GrabCAD, McMaster)</li>
+        <li>Generate dimensioned fabrication drawings for custom parts</li>
+        <li>Assist with FEA setup and result documentation</li>
+        <li>Maintain GrabCAD file organization and version control</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>SolidWorks or Fusion 360 experience required</li>
+        <li>Engineering drawing / GD&amp;T coursework a plus</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">3–8</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">None</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">3–5</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Open enrollment</div></div>
+      </div>
+    </div>
+
+    <div class="role-card contrib" data-tier="contrib">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Fabrication Tech</div>
+          <div class="role-subtitle">Shop support, welding &amp; machining</div>
+        </div>
+        <div class="role-badge badge-contrib">Contributor — fabrication</div>
+      </div>
+      <p class="role-desc">Hands-on build support in the shop. Tube cutting, deburring, part prep, fiberglass layups, hardware installation, and shop organization. Welders and machinists are especially valuable. This is where the car actually gets built — no experience is wasted here.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Cut and prep tubes, sheet metal, and raw stock from drawings</li>
+        <li>Deburr, clean, and stage parts ahead of welding sessions</li>
+        <li>Perform fiberglass or carbon fiber layups for bodywork and aero</li>
+        <li>Install hardware, fasteners, and plumbing under lead supervision</li>
+        <li>Keep shop organized and tools inventoried between sessions</li>
+        <li>Qualified welders: assist with or perform non-structural welds</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Any welding, machining, or fabrication background immediately useful</li>
+        <li>No experience required — shop safety orientation is the only prerequisite</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">2–8</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">None</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">Unlimited</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Shop safety orientation</div></div>
+      </div>
+    </div>
+
+    <div class="role-card contrib" data-tier="contrib">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Procurement Coordinator</div>
+          <div class="role-subtitle">Parts sourcing, vendors &amp; inventory</div>
+        </div>
+        <div class="role-badge badge-contrib">Contributor — operations</div>
+      </div>
+      <p class="role-desc">Keeps the build stocked. Researches vendors, tracks orders, manages the parts inventory, and hunts down the best prices on everything from AN fittings to used engines. If the team runs out of welding rod mid-session, that's this role's nightmare to prevent.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Maintain the live bill of materials and track all incoming orders</li>
+        <li>Research vendors and compare pricing for parts on the BOM</li>
+        <li>Source used components from retiring FSAE teams and automotive suppliers</li>
+        <li>Manage parts inventory in the shop — label, store, and log everything</li>
+        <li>Coordinate with Business Manager on purchasing approvals</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Organized, detail-oriented, comfortable with spreadsheets</li>
+        <li>Supply chain, logistics, or business coursework a plus</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">2–5</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">None</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1–2</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Open enrollment</div></div>
+      </div>
+    </div>
+
+    <div class="role-card contrib" data-tier="contrib">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Documentation Lead</div>
+          <div class="role-subtitle">Design report, records &amp; technical writing</div>
+        </div>
+        <div class="role-badge badge-contrib">Contributor — documentation</div>
+      </div>
+      <p class="role-desc">Builds the paper trail that wins points at competition. The FSAE design report and cost report are judged events — a well-documented car scores more than an undocumented one even with the same hardware. This role starts on day one and runs until competition day.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Maintain the running design report document across all systems</li>
+        <li>Interview system leads and translate technical decisions into written explanations</li>
+        <li>Photograph every major build milestone for documentation and social media</li>
+        <li>Compile and format the FSAE cost report per official rules</li>
+        <li>Maintain meeting notes, session reports, and team records</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Strong writing skills — technical writing coursework a plus</li>
+        <li>Photography or media skills welcome</li>
+        <li>Engineering background helpful but not required</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">3–6</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">None</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1–2</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Open enrollment</div></div>
+      </div>
+    </div>
+
+    <div class="role-card contrib" data-tier="contrib">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Marketing &amp; Media</div>
+          <div class="role-subtitle">Social media, branding &amp; outreach</div>
+        </div>
+        <div class="role-badge badge-contrib">Contributor — creative</div>
+      </div>
+      <p class="role-desc">Tells the story of the build. Runs the team's Instagram and LinkedIn, creates content that attracts sponsors and recruits, and makes Ohlone Racing visible to the Bay Area engineering community. Great sponsors and great recruits find teams that look active and credible online.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Manage Instagram and LinkedIn — consistent posting throughout the build</li>
+        <li>Document and photograph build sessions for content</li>
+        <li>Design graphics for sponsor materials, the website, and print collateral</li>
+        <li>Write and distribute press releases for major milestones</li>
+        <li>Support recruiting campaigns each semester</li>
+      </ul>
+      <div class="role-section-title">Helpful background</div>
+      <ul class="role-list">
+        <li>Graphic design, marketing, communications, or multimedia coursework</li>
+        <li>Social media content creation experience</li>
+        <li>Photography and video editing skills very welcome</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">2–5</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">None</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">1–2</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">Open enrollment</div></div>
+      </div>
+    </div>
+
+    <div class="role-card contrib" data-tier="contrib">
+      <div class="role-top">
+        <div class="role-title-block">
+          <div class="role-title">Driver</div>
+          <div class="role-subtitle">Competition driver &amp; vehicle development</div>
+        </div>
+        <div class="role-badge badge-contrib">Contributor — driving</div>
+      </div>
+      <p class="role-desc">Drives the car at testing and competition. Provides consistent, documented feedback that the technical team uses to tune suspension, brakes, and ECU. FSAE drivers are not passengers — you are a sensor, and your feedback directly shapes how the car is developed.</p>
+      <div class="role-section-title">What you'll do</div>
+      <ul class="role-list">
+        <li>Complete all FSAE driver equipment requirements (helmet, suit, HANS)</li>
+        <li>Participate in all testing sessions and provide structured feedback</li>
+        <li>Practice skidpad, autocross, and acceleration event disciplines</li>
+        <li>Drive endurance event at competition (22km)</li>
+        <li>Learn basic car setup so you can communicate meaningfully with the team</li>
+      </ul>
+      <div class="role-section-title">Requirements</div>
+      <ul class="role-list">
+        <li>Valid driver's license — required, no exceptions</li>
+        <li>Pass team driver evaluation session before any competition driving</li>
+        <li>Provide or arrange own SFI-rated helmet, suit, HANS device, and gloves</li>
+        <li>Motorsport or performance driving experience a plus — not required</li>
+      </ul>
+      <div class="role-meta">
+        <div class="role-meta-item"><div class="meta-label">Weekly hrs</div><div class="meta-val">2–4 (testing phase)</div></div>
+        <div class="role-meta-item"><div class="meta-label">Trial period</div><div class="meta-val">Driver eval</div></div>
+        <div class="role-meta-item"><div class="meta-label">Openings</div><div class="meta-val">2–3</div></div>
+        <div class="role-meta-item"><div class="meta-label">Entry</div><div class="meta-val">License + evaluation</div></div>
+      </div>
+    </div>
+
+  </div><!-- /roles-grid -->
+
+  <!-- TRIAL PROCESS -->
+  <div class="trial-block">
+    <h3>How joining works</h3>
+    <p style="font-size:0.875rem;color:var(--muted);margin-bottom:.25rem">For core roles, here's the four-step process from interest to full team member.</p>
+    <div class="trial-steps">
+      <div class="trial-step">
+        <div class="step-num">STEP 01</div>
+        <div class="step-title">Express interest</div>
+        <p>Fill out the contact form below or show up to a team meeting. Tell us which role you're interested in and a bit about your background.</p>
+      </div>
+      <div class="trial-step">
+        <div class="step-num">STEP 02</div>
+        <div class="step-title">Calibration talk</div>
+        <p>The relevant system lead has a 30-minute conversation with you — no pressure, no trick questions. We're calibrating fit, not filtering people out.</p>
+      </div>
+      <div class="trial-step">
+        <div class="step-num">STEP 03</div>
+        <div class="step-title">Trial period</div>
+        <p>You're assigned real, meaningful work for 4–6 weeks. Show up, do the work, communicate when you can't. That's all we ask.</p>
+      </div>
+      <div class="trial-step">
+        <div class="step-num">STEP 04</div>
+        <div class="step-title">Full member</div>
+        <p>After the trial, the role is yours. You're on the team, you're on the car, and you go to competition with us.</p>
+      </div>
+    </div>
+  </div>
+
+  <a href="#contact" class="btn-primary">Apply for a role</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">Ohlone <span class="gold">Racing</span> <span class="teal">/ Renegades FSAE</span></a>
+  <p>Ohlone College — Fremont, CA · First-year Formula SAE program<br>Competing in SAE International collegiate design series</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#car">The car</a>
+    <a href="#join">Join</a>
+    <a href="#sponsor">Sponsor</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-confirm').style.display = 'block';
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'Sent';
+    btn.style.background = 'var(--teal)';
+    btn.style.color = 'var(--gold)';
+  }
+  function showTier(tier, btn) {
+    document.querySelectorAll('.tier-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.role-card').forEach(card => {
+      const t = card.dataset.tier;
+      card.classList.toggle('visible', tier === 'all' || t === tier);
+    });
+  }
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : '';
+    });
+  });
+</script>
+</body>
+
+<!-- Mirrored from https://ohlonerenegaderacing.netlify.app/ by HTTrack Website Copier/3.x [XR&CO], Sat, 10 Oct 2026 21:27:20 GMT -->
+</html>
+<script async src=".netlify/scripts/hud3eb9?variant=public" data-nf-variant="public" data-netlify-site-id="ca70edeb-c1ec-4547-a411-7d6fb1ea1357" data-app-host="app.netlify.com"></script>
